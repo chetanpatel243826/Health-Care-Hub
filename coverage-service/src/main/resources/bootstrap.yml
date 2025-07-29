@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: coverage-service
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        service-name: coverage-service
+      config:
+        enabled: true
+        format: YAML
+        prefix: config
+        default-context: application
+        profile-separator: '-'
