@@ -11,5 +11,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 @Repository
 public interface PolicyRepository extends JpaRepository<Policy,Long>{
 	 public List<Policy> findByPolicyHolder(String policyHolder);
+	 public Policy findByPolicyNumber(String policyNumber);
 
 }
