@@ -1,0 +1,34 @@
+server:
+  port: 8081  # Gateway runs on this port
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        service-name: api-gateway
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/auth/**
+        - id: coverage-service
+          uri: lb://coverage-service
+          predicates:
+            - Path=/coverage/**
+#        - id: provider-service
+#          uri: lb://provider-service
+#          predicates:
+#            - Path=/provider/**
+jwt:
+  secret: myVerySecretKeyChangeMeTz98oIghYHs+8YamHf5C4t/zXKdsRFRF3R9N8l3DUVg=
+  expiration: 3600000 
+

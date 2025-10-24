@@ -16,7 +16,7 @@ import com.health.coverage_service.entity.Policy;
 import com.health.coverage_service.service.PolicyService;
 
 @RestController
-@RequestMapping("/api/policies")
+@RequestMapping("/coverage")
 public class PolicyController {
 	
 	@Autowired

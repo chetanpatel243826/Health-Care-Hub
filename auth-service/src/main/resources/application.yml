@@ -20,5 +20,5 @@ spring:
         service-name: auth-service
 
 jwt:
-  secret: myVerySecretKeyChangeMe
+  secret: myVerySecretKeyChangeMeTz98oIghYHs+8YamHf5C4t/zXKdsRFRF3R9N8l3DUVg=
   expiration: 3600000  
