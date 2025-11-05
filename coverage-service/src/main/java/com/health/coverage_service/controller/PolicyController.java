@@ -30,7 +30,7 @@ public class PolicyController {
     	}
     	return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
-
+ 
     @GetMapping("/{id}")
     public ResponseEntity<Policy> getById(@PathVariable Long id) {
         Policy policy = policyService.getPolicyById(id);

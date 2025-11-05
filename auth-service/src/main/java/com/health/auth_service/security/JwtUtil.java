@@ -22,7 +22,6 @@ public class JwtUtil {
     @Value("${jwt.expiration}")
     private long expirationMs;
 
-    SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
     public String generateToken(String username) {
         Date now = new Date();
         Date exp = new Date(now.getTime() + expirationMs);
