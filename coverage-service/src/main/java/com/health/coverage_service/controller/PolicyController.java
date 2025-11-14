@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.health.coverage_service.bmi.BMIRequest;
+import com.health.coverage_service.bmi.BMIResponse;
 import com.health.coverage_service.entity.Policy;
+import com.health.coverage_service.service.BMIService;
 import com.health.coverage_service.service.PolicyService;
 
 @RestController
@@ -21,6 +24,9 @@ public class PolicyController {
 	
 	@Autowired
     private PolicyService policyService;
+	
+	@Autowired
+	private BMIService bmiService;
 
     @GetMapping
     public ResponseEntity<?> getAll() {
@@ -45,5 +51,16 @@ public class PolicyController {
     	} catch(Exception e) {
     		return new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
     	}
+    }
+    
+    @PostMapping("/bmi")
+    public ResponseEntity<?> getBMI(@RequestBody BMIRequest bMIRequest) {
+    	try {
+    		BMIResponse response = bmiService.getBMI(bMIRequest);
+    		return new ResponseEntity<BMIResponse>(response,HttpStatus.OK);
+    	} catch(Exception e) {
+    		return new ResponseEntity<String>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
+    	}
+    	
     }
 }

@@ -24,3 +24,7 @@ spring:
         prefix: config
         default-context: application
         profile-separator: '-'
+bmi:
+  api:
+    url: https://api.apiverve.com/v1/bmicalculator
+    key: 654f8443-9c05-4a64-a9f4-8d4eba1c54f7
